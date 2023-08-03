@@ -43,7 +43,7 @@ function game()
             playerwin=playerwin+1;
         }
         else{
-            console.log("Tie Round "+(index+1));
+            console.log("Tie in Round "+(index+1));
             tie=tie+1;
         }
     }
