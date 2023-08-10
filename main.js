@@ -52,17 +52,17 @@ function playGame(comp, choice,win) {
     console.log(`Computer choice: ${comp}`);
     if (st === "Computer Wins") {
         cmpch.textContent="Computer Choice: "+comp;
-        resultele.textContent="Computer Wins";
+        resultele.textContent="Computer Wins Round";
         win[0]=win[0]+1;
         console.log("Computer Wins");
     } else if (st === "Player Wins") {
         cmpch.textContent="Computer Choice: "+comp;
-        resultele.textContent="Player Wins";
+        resultele.textContent="Player Wins Round";
         win[1]=win[1]+1;
         console.log("Player Wins");
     } else {
         cmpch.textContent="Computer Choice: "+comp;
-        resultele.textContent="Tie";
+        resultele.textContent="Tie Round";
         win[2]=win[2]+1;
         console.log("Tie");
     }
