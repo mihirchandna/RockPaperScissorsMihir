@@ -1,58 +1,87 @@
-function getComputerChoice()
-{
-    let arr=["Rock","Paper","Scissor"];
-    return arr[(Math.floor(Math.random()*arr.length))];
+function getComputerChoice() {
+    let arr = ["Rock", "Paper", "Scissor"];
+    return arr[(Math.floor(Math.random() * arr.length))]; // Return string choice, not index
 }
 
-function decision(comp,player)
-{
-    if(player==comp)
-    {
+function decision(comp, player) {
+    if (player === comp) {
         return "Tie";
-    }
-    else if((player=="Rock" && comp=="Paper")|| (player=="Scissor" && comp=="Rock")||(player=="paper" && comp=="Scissor"))
-    {
-        return "Computer Wins"
-    }
-    else{
+    } else if ((player === "Rock" && comp === "Paper") || (player === "Scissor" && comp === "Rock") || (player === "Paper" && comp === "Scissor")) {
+        return "Computer Wins";
+    } else {
         return "Player Wins";
     }
 }
 
-// const comp=getComputerChoice();
-// console.log("Computer Choice "+comp);
-// console.log(decision(comp,plyrchoice));
+function game() {
+    let comp;
+    let choice;
+    let win=[0,0,0];
+    let round=0;
+    // Rock-Rock Paper Paper Scissor Scissor
+    const rock = document.querySelector(".rock");
+    rock.onclick = () => {
+        round=round+1;
+        comp = getComputerChoice();
+        choice = "Rock";
+        win=playGame(comp, choice, win, round);
+    };
 
-function game()
-{
-    let playerwin=0;
-    let computerwin=0;
-    let tie=0;
-    for (let index = 0; index < 5; index++) {
-        let comp=getComputerChoice();
-        const playerchoice=window.prompt("Enter the choice","Rock, Paper, Scissor");
-        let st=decision(comp,playerchoice);
-        if(st=="Computer Wins")
-        {
-            console.log("Computer Wins Round "+(index+1));
-            computerwin=computerwin+1;
-        }
-        else if(st=="Player Wins")
-        {
-            console.log("Player Wins Round "+(index+1));
-            playerwin=playerwin+1;
-        }
-        else{
-            console.log("Tie in Round "+(index+1));
-            tie=tie+1;
-        }
-    }
-    if(computerwin>playerwin)
-    {
-        console.log("Computer Wins");
-    }
-    else{
-        console.log("Player Wins");
-    }
+    const paper = document.querySelector(".paper");
+    paper.onclick = () => {
+        round=round+1;
+        comp = getComputerChoice();
+        choice = "Paper"; // Convert choice to string
+        win=playGame(comp, choice, win, round);
+    };
+
+    const scissor = document.querySelector(".scissor");
+    scissor.onclick = () => {
+        round=round+1;
+        comp = getComputerChoice();
+        choice = "Scissor"; // Convert choice to string
+        win=playGame(comp, choice, win, round);
+    };
 }
-game();
+
+function playGame(comp, choice,win) {
+    let st = decision(comp, choice);
+    let cmpch=document.getElementById("comp");
+    let scr=document.getElementById("score")
+    let resultele=document.getElementById("result");
+    console.log(`Computer choice: ${comp}`);
+    if (st === "Computer Wins") {
+        cmpch.textContent="Computer Choice: "+comp;
+        resultele.textContent="Computer Wins";
+        win[0]=win[0]+1;
+        console.log("Computer Wins");
+    } else if (st === "Player Wins") {
+        cmpch.textContent="Computer Choice: "+comp;
+        resultele.textContent="Player Wins";
+        win[1]=win[1]+1;
+        console.log("Player Wins");
+    } else {
+        cmpch.textContent="Computer Choice: "+comp;
+        resultele.textContent="Tie";
+        win[2]=win[2]+1;
+        console.log("Tie");
+    }
+    scr.textContent="Computer Wins: "+win[0]+" Player Wins: "+win[1]+" Tie: "+win[2];
+    if(win[0]==5)
+    {
+        scr.textContent="Computer Wins Game";
+        win=[0,0,0];
+        return win;
+    }
+    else if(win[1]==5)
+    {
+        scr.textContent="Player Wins Game";
+        win=[0,0,0];
+        return win;
+    }
+    return win;
+}
+document.addEventListener("DOMContentLoaded", () => {
+    game();
+});
+
