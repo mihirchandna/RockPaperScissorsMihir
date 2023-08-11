@@ -16,10 +16,9 @@ Here is an example of how the game works:
 
 To play Rock Paper Scissors Computer, simply follow these steps:
 
-1. Open the RockPaperScissorsComputer.py file in a text editor.
-2. Enter your move (rock, paper, or scissors) on the first line of the file.
-3. Computer will respond with their move on the second line of the file.
-4. The winner of the game is the person who wins the most number of rounds.
+1. Press your move button (rock, paper, or scissors).
+2. Computer will respond with their move.
+3. The winner of the game is the person who wins 5 rounds first.
 
 ## Example
 
