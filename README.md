@@ -1,9 +1,5 @@
-RockPaperScissorsMihir
-
-Play Now:- rockpaperscissorsmihir.netlify.app
-
 ## Rock Paper Scissors Computer
-
+## https://rockpaperscissorsmihir.netlify.app
 This is a simple Rock Paper Scissors game that you can play with Computer.
 
 To play, simply click your move button (rock, paper, or scissors) and Computer will respond with their move. The winner of the game is the person who wins 5 rounds first.
